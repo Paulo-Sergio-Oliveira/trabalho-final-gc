@@ -18,14 +18,14 @@ interface EditProductDialogProps {
   product: Product | null
   categories: Category[]
   onOpenChange: (open: boolean) => void
-  onUpdate: (data: { name: string; price: string; image: string; categoryId: string }) => void
+  onUpdate: (data: { name: string; price: string; imageUrl: string; categoryId: string }) => void
 }
 
 export function EditProductDialog({ open, product, categories, onOpenChange, onUpdate }: EditProductDialogProps) {
   const [formData, setFormData] = useState({
     name: "",
     price: "",
-    image: "",
+    imageUrl: "",
     categoryId: "",
   })
 
@@ -34,14 +34,14 @@ export function EditProductDialog({ open, product, categories, onOpenChange, onU
       setFormData({
         name: product.name,
         price: product.price.toString(),
-        image: product.imageUrl,
+        imageUrl: product.imageUrl,
         categoryId: product.categoryId,
       })
     }
   }, [product])
 
   const resetForm = () => {
-    setFormData({ name: "", price: "", image: "", categoryId: "" })
+    setFormData({ name: "", price: "", imageUrl: "", categoryId: "" })
   }
 
   const handleUpdate = () => {
@@ -102,8 +102,8 @@ export function EditProductDialog({ open, product, categories, onOpenChange, onU
             <Label htmlFor="edit-image">URL da Imagem</Label>
             <Input
               id="edit-image"
-              value={formData.image}
-              onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+              value={formData.imageUrl}
+              onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
             />
           </div>
         </div>

@@ -59,12 +59,12 @@ export default function AdminPage() {
     }
   }
 
-  const handleCreate = async (formData: { name: string; price: string; image: string; categoryId: string }) => {
+  const handleCreate = async (formData: { name: string; price: string; imageUrl: string; categoryId: string }) => {
     try {
       await api.products.create({
         name: formData.name,
         price: parseFloat(formData.price),
-        imageUrl: formData.image,
+        imageUrl: formData.imageUrl,
         categoryId: formData.categoryId,
       })
 
@@ -90,14 +90,14 @@ export default function AdminPage() {
     setEditDialogOpen(true)
   }
 
-  const handleUpdate = async (formData: { name: string; price: string; image: string; categoryId: string }) => {
+  const handleUpdate = async (formData: { name: string; price: string; imageUrl: string; categoryId: string }) => {
     if (!selectedProduct) return
 
     try {
       await api.products.update(selectedProduct.id, {
         name: formData.name,
         price: parseFloat(formData.price),
-        imageUrl: formData.image,
+        imageUrl: formData.imageUrl,
         categoryId: formData.categoryId,
       })
 

@@ -17,19 +17,19 @@ interface CreateProductDialogProps {
   open: boolean
   categories: Category[]
   onOpenChange: (open: boolean) => void
-  onCreate: (data: { name: string; price: string; image: string; categoryId: string }) => void
+  onCreate: (data: { name: string; price: string; imageUrl: string; categoryId: string }) => void
 }
 
 export function CreateProductDialog({ open, categories, onOpenChange, onCreate }: CreateProductDialogProps) {
   const [formData, setFormData] = useState({
     name: "",
     price: "",
-    image: "",
+    imageUrl: "",
     categoryId: "",
   })
 
   const resetForm = () => {
-    setFormData({ name: "", price: "", image: "", categoryId: "" })
+    setFormData({ name: "", price: "", imageUrl: "", categoryId: "" })
   }
 
   const handleCreate = () => {
@@ -92,8 +92,8 @@ export function CreateProductDialog({ open, categories, onOpenChange, onCreate }
             <Label htmlFor="create-image">URL da Imagem</Label>
             <Input
               id="create-image"
-              value={formData.image}
-              onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+              value={formData.imageUrl}
+              onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
               placeholder="/placeholder.svg?height=300&width=300"
             />
           </div>

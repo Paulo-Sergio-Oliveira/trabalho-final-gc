@@ -36,8 +36,8 @@ export interface Product {
   imageUrl: string
   categoryId: string
   category?: Category
-  createdAt?: string
-  updatedAt?: string
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 export interface CreateProductInput {

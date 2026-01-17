@@ -6,7 +6,6 @@ on:
     paths:
       - 'server/**'
       - '.github/workflows/backend.yml'
-      - 'frontend/lib/**'
 
 jobs:
   build-and-push:
@@ -39,8 +38,8 @@ jobs:
     - name: Gerar Prisma Client
       run: npx prisma generate
 
-    # - name: Rodar Testes
-    #   run: npm test
+    - name: Rodar Testes
+      run: npm test
 
     - name: Build e Push da Imagem Docker
       uses: docker/build-push-action@v5
